@@ -1,9 +1,6 @@
 package Learn.io.HelloWorld;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/Todo/Get")
@@ -23,6 +20,14 @@ public class TodoController {
     String toDoId(@PathVariable int id) {
         return  "TODO with id" + " " + id;
     }
+
+    //Request Param
+    @GetMapping
+    String toDoWithId(@RequestParam("todo") int id) {
+        return  "TODO with id" + " " + id;
+    }
+
+
 
 }
 
