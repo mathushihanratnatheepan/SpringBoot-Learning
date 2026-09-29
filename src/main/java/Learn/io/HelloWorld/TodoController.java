@@ -1,5 +1,6 @@
 package Learn.io.HelloWorld;
 
+import org.apache.catalina.User;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -25,6 +26,16 @@ public class TodoController {
     @GetMapping
     String toDoWithId(@RequestParam("todo") int id) {
         return  "TODO with id" + " " + id;
+    }
+
+    //@RequestBody
+    /*This annotation cannot be used with GetMapping
+    This is basically used to send things without making them visible in the url.
+     */
+
+    @PostMapping("/create")
+    String createUser(@RequestBody String body) {
+        return body;
     }
 
 
