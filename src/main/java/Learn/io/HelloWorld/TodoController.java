@@ -1,15 +1,20 @@
 package Learn.io.HelloWorld;
 
 import org.apache.catalina.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/Todo/Get")
 public class TodoController {
+    @Autowired
+    private ToDoService toDoService;
     @GetMapping("/users")
     String toDo() {
+        toDoService.printToDo();
         return  "TODO";
     }
+
 
     @GetMapping("/allusers")
     String toDoUsers() {
