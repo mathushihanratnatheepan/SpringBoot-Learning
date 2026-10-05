@@ -1,7 +1,10 @@
 package Learn.io.HelloWorld;
 
+import Learn.io.HelloWorld.models.Todo;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -11,7 +14,6 @@ public class TodoController {
     private ToDoService toDoService;
     @GetMapping("/users")
     String toDo() {
-        toDoService.printToDo();
         return  "TODO";
     }
 
@@ -39,8 +41,10 @@ public class TodoController {
      */
 
     @PostMapping("/create")
-    String createUser(@RequestBody String body) {
-        return body;
+    ResponseEntity<Todo> createUser(@RequestBody Todo todo) {
+        toDoService.createTodo(todo);
+        return new ResponseEntity<>(toDoService.createTodo(todo), HttpStatus.CREATED);
+
     }
 
 

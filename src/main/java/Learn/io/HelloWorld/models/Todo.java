@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 public class Todo {
     @Id
     @GeneratedValue
-    long id;
+    Long id;
     String title;
     String description;
     Boolean completed;

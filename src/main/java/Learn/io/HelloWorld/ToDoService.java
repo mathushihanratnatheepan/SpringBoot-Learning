@@ -13,6 +13,7 @@ package Learn.io.HelloWorld;
 //        System.out.println(toDoRepository.getAllTodos());
 //    }
 
+import Learn.io.HelloWorld.models.Todo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,15 +22,14 @@ public class ToDoService {
     @Autowired
     private ToDoRepository toDoRepository;
 
+//    public void printToDo() {
+//        System.out.println(toDoRepository.getAllTodos());
+//    }
 
-    public void printToDo() {
-        System.out.println(toDoRepository.getAllTodos());
+    public Todo createTodo (Todo todo) {
+        return toDoRepository.save(todo);
+
     }
-
-
-
-
-
 
 
 }
