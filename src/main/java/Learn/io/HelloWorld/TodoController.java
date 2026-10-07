@@ -25,8 +25,8 @@ public class TodoController {
 
     //pathvariable
     @GetMapping("/{id}")
-    String toDoId(@PathVariable int id) {
-        return  "TODO with id" + " " + id;
+    ResponseEntity <Todo> getById (@PathVariable Long id) {
+        return new ResponseEntity<> (toDoService.getById(id), HttpStatus.OK);
     }
 
     //Request Param

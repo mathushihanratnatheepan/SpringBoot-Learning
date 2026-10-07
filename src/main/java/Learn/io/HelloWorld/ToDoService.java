@@ -31,5 +31,9 @@ public class ToDoService {
 
     }
 
+    public Todo getById (Long id) {
+        return toDoRepository.getReferenceById(id);
+    }
+
 
 }
