@@ -26,7 +26,12 @@ public class TodoController {
     //pathvariable
     @GetMapping("/{id}")
     ResponseEntity <Todo> getById (@PathVariable Long id) {
-        return new ResponseEntity<> (toDoService.getById(id), HttpStatus.OK);
+        try{
+            Todo createdTodo = toDoService.getById(id);
+            return new ResponseEntity<>(createdTodo, HttpStatus.CREATED);
+        } catch (RuntimeException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     //Request Param
@@ -45,7 +50,10 @@ public class TodoController {
          toDoService.createTodo(todo);
          return new ResponseEntity<>(toDoService.createTodo(todo), HttpStatus.CREATED);
 
+
     }
+
+
 
 
 

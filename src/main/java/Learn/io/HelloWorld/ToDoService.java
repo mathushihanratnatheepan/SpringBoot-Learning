@@ -15,7 +15,9 @@ package Learn.io.HelloWorld;
 
 import Learn.io.HelloWorld.models.Todo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 @Service
 public class ToDoService {
@@ -32,7 +34,8 @@ public class ToDoService {
     }
 
     public Todo getById (Long id) {
-        return toDoRepository.getReferenceById(id);
+        return toDoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Todo not found: " ));
     }
 
 
