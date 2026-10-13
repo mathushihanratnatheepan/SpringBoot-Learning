@@ -19,6 +19,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
+
 @Service
 public class ToDoService {
     @Autowired
@@ -36,6 +38,11 @@ public class ToDoService {
     public Todo getById (Long id) {
         return toDoRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Todo not found: " ));
+    }
+
+    public List<Todo> getAllTodos() {
+        return toDoRepository.findAll();
+
     }
 
 

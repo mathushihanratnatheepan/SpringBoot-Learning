@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/Todo/Get")
 public class TodoController {
@@ -52,6 +54,12 @@ public class TodoController {
 
 
     }
+
+    @GetMapping("/all")
+    ResponseEntity<List<Todo>> getAllTodos() {
+        return new ResponseEntity<>(toDoService.getAllTodos(), HttpStatus.OK);
+    }
+
 
 
 
