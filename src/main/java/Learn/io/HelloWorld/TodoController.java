@@ -66,6 +66,15 @@ public class TodoController {
 
     }
 
+    @DeleteMapping
+    void deleteTodoById (@PathVariable long id) {
+        toDoService.deleteTodoById(id);
+
+
+    }
+
+
+
 
 
 
