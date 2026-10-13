@@ -60,6 +60,15 @@ public class TodoController {
         return new ResponseEntity<>(toDoService.getAllTodos(), HttpStatus.OK);
     }
 
+    @PutMapping
+    ResponseEntity<Todo> updateTodoById (@RequestBody Todo todo) {
+        return new ResponseEntity<>(toDoService.updateTodo(todo), HttpStatus.OK);
+
+    }
+
+
+
+
 
 
 
